@@ -48,7 +48,13 @@ oppositeMovement West = East
 --   Also, in the import list you have all relevant functions.
 makeRandomPoint :: BoardInfo -> StdGen -> (Point, StdGen)
 -- makeRandomPoint boardInfo rand = ((randomR 1  . height boardInfo, randomR 1 width boardInfo), rand)
-makeRandomPoint = undefined
+makeRandomPoint (BoardInfo h w) rand = (generatedPoint, updatedGenerator)
+  where
+    (randGen1, randGen2) = split rand
+    (randomHeight, randGen1') = uniformR (1, h) randGen1
+    (randomWidth, _) = uniformR (1, w) randGen2
+    generatedPoint = (randomHeight, randomWidth)
+    updatedGenerator = randGen1'
 
 {-
 We can't test makeRandomPoint, because different implementation may lead to different valid result.
