@@ -130,10 +130,16 @@ ppBoard = foldl' (++) "" . map ppCell . elems
 -- | convert the RenderState in a String ready to be flushed into the console.
 --   It should return the Board with a pretty look. If game over, return the empty board.
 render :: BoardInfo -> RenderState -> String
-render boardInfo renderState =
-  case gameOver renderState of
-    True  -> ppBoard (emptyGrid boardInfo)
-    False -> ppBoard (board renderState)
+render boardInfo@(BoardInfo _h w) (RenderState b gOver) =
+  if gOver
+    then fst $ boardToString (emptyGrid boardInfo)
+    else fst $ boardToString b
+  where
+    boardToString = foldl' fprint ("", 0)
+    fprint (!s, !i) cell =
+      if ((i + 1) `mod` w) == 0
+        then (s <> ppCell cell <> "\n", i + 1)
+        else (s <> ppCell cell, i + 1)
 
 {-
 This is a test for render. It should return:
