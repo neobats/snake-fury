@@ -1,6 +1,6 @@
-# Refactor 1: from mpv to full game
+# Refactor 1: from mvp to full game
 
-- [Refactor 1: from mpv to full game](#refactor-1-from-mpv-to-full-game)
+- [Refactor 1: from mvp to full game](#refactor-1-from-mvp-to-full-game)
   - [Step 1: Add score](#step-1-add-score)
     - [Task 1.1: Introduce a `score` field](#task-11-introduce-a-score-field)
     - [Task 1.2: Update the score](#task-12-update-the-score)
@@ -8,7 +8,7 @@
     - [Task 2.1: Change the `EventQueue` speed](#task-21-change-the-eventqueue-speed)
   - [Step 3: Performance issues](#step-3-performance-issues)
     - [Task 3.1: Render the score](#task-31-render-the-score)
-  
+
 In this refactor you'll modify the code to add a score board and to accelerate snake's speed as you get points. Also we'll point out a performance problem with the renderer. Your mission is to solve it.
 
 This refactor has three steps:
@@ -55,13 +55,13 @@ For this challenge we are going to use a not very common representation of text:
 - Read the documentation of `Data.ByteString.Builder` from `bytestring` package.
 - Create a function `ppScore :: Int -> Builder` which pretty prints the score. Feel free to use a representation you like. Below you have some examples
 - Modify the function `render` to have type `:: BoardInfo -> RenderState -> Builder`. Of course, the render function should plot the score and the board itself
-- clean errors the compiler gives. How do you print a `Builder` into the console?  (hint: check `IO` functions in the `Data.ByteString.Builder` [module](https://hackage.haskell.org/package/bytestring-0.10.6.0/docs/Data-ByteString-Builder.html))
+- clean errors the compiler gives. How do you print a `Builder` into the console? (hint: check `IO` functions in the `Data.ByteString.Builder` [module](https://hackage.haskell.org/package/bytestring-0.10.6.0/docs/Data-ByteString-Builder.html))
 
 Here are some ways you can render the score:
 
 ```bash
 # With stars lines    # With a board    # With motivation quote changing every 10 points
-                                      
+
 ********              |--------|        score:  5 / do better!
 score:10              |score:10|        score:  10 / keep going!
 ********              |--------|        score:  20 / on fire!
