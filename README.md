@@ -10,6 +10,16 @@
   - [Contributions and Feedback](#contributions-and-feedback)
 
 ## Introduction
+Dear Reader: I (neobats) am working through this set of exercises in order to learn Haskell in a non-tutorial way. This set of exercises has been really helpful! You should try it too!
+
+Here's my current progress:
+1. I implemented RenderState mvp
+2. I fleshed out all the parts of GameState which do not depend on randomGen
+3. Then I got stuck and looked at the solution-mvp branch
+4. I ended up copying over a lot of that code
+5. Then I copied over the `RenderState render` function because I got a little tripped up on the new lines.
+
+What follows is the upstream README:
 
 **Welcome to snake-fury**: the Haskell challenge for beginners. This challenge aims to provide a learning path for people willing to learn Haskell further than basic recursion exercises by implementing the snake game in Haskell. Snake-fury's pedagogical approach is based on two legs:
 
