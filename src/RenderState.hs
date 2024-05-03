@@ -24,7 +24,7 @@ Which would look like this:
 module RenderState where
 
 -- This are all imports you need. Feel free to import more things.
-import Data.Array ( (//), listArray, Array, elems )
+import Data.Array ( (//), listArray, Array )
 import Data.Foldable ( foldl' )
 
 -- A point is just a tuple of integers.
@@ -123,9 +123,6 @@ ppCell Empty = "- "
 ppCell Snake = "0 "
 ppCell SnakeHead = "$ "
 ppCell Apple = "A "
-
-ppBoard :: Board -> String
-ppBoard = foldl' (++) "" . map ppCell . elems
 
 -- | convert the RenderState in a String ready to be flushed into the console.
 --   It should return the Board with a pretty look. If game over, return the empty board.
